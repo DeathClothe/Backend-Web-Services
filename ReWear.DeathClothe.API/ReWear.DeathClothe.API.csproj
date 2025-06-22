@@ -28,10 +28,6 @@
       <Folder Include="Categories\Domain\" />
       <Folder Include="Categories\Infrastructure\" />
       <Folder Include="Categories\Interfaces\" />
-      <Folder Include="Clothes\Application\" />
-      <Folder Include="Clothes\Domain\" />
-      <Folder Include="Clothes\Infrastructure\" />
-      <Folder Include="Clothes\Interfaces\" />
       <Folder Include="IAM\Application\" />
       <Folder Include="IAM\Domain\" />
       <Folder Include="IAM\Infrastructure\" />

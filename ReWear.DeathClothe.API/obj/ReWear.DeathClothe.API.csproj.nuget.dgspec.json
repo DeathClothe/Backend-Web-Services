@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Usuario\\Desktop\\DeathClothe-Backend\\ReWear.DeathClothe.API\\ReWear.DeathClothe.API.csproj": {}
+    "C:\\Users\\Usuario\\Desktop\\BACK WEB FINAL\\Backend-Web-Services-CLONADOF\\ReWear.DeathClothe.API\\ReWear.DeathClothe.API.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Usuario\\Desktop\\DeathClothe-Backend\\ReWear.DeathClothe.API\\ReWear.DeathClothe.API.csproj": {
+    "C:\\Users\\Usuario\\Desktop\\BACK WEB FINAL\\Backend-Web-Services-CLONADOF\\ReWear.DeathClothe.API\\ReWear.DeathClothe.API.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Usuario\\Desktop\\DeathClothe-Backend\\ReWear.DeathClothe.API\\ReWear.DeathClothe.API.csproj",
+        "projectUniqueName": "C:\\Users\\Usuario\\Desktop\\BACK WEB FINAL\\Backend-Web-Services-CLONADOF\\ReWear.DeathClothe.API\\ReWear.DeathClothe.API.csproj",
         "projectName": "ReWear.DeathClothe.API",
-        "projectPath": "C:\\Users\\Usuario\\Desktop\\DeathClothe-Backend\\ReWear.DeathClothe.API\\ReWear.DeathClothe.API.csproj",
+        "projectPath": "C:\\Users\\Usuario\\Desktop\\BACK WEB FINAL\\Backend-Web-Services-CLONADOF\\ReWear.DeathClothe.API\\ReWear.DeathClothe.API.csproj",
         "packagesPath": "C:\\Users\\Usuario\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Usuario\\Desktop\\DeathClothe-Backend\\ReWear.DeathClothe.API\\obj\\",
+        "outputPath": "C:\\Users\\Usuario\\Desktop\\BACK WEB FINAL\\Backend-Web-Services-CLONADOF\\ReWear.DeathClothe.API\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

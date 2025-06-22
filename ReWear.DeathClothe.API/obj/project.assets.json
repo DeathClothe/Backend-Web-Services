@@ -8319,11 +8319,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Usuario\\Desktop\\BACK WEB FINAL\\Backend-Web-Services-CLONADOF\\ReWear.DeathClothe.API\\ReWear.DeathClothe.API.csproj",
+      "projectUniqueName": "C:\\Users\\Usuario\\Desktop\\Backend-Web-Services-CLONADOF\\ReWear.DeathClothe.API\\ReWear.DeathClothe.API.csproj",
       "projectName": "ReWear.DeathClothe.API",
-      "projectPath": "C:\\Users\\Usuario\\Desktop\\BACK WEB FINAL\\Backend-Web-Services-CLONADOF\\ReWear.DeathClothe.API\\ReWear.DeathClothe.API.csproj",
+      "projectPath": "C:\\Users\\Usuario\\Desktop\\Backend-Web-Services-CLONADOF\\ReWear.DeathClothe.API\\ReWear.DeathClothe.API.csproj",
       "packagesPath": "C:\\Users\\Usuario\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Usuario\\Desktop\\BACK WEB FINAL\\Backend-Web-Services-CLONADOF\\ReWear.DeathClothe.API\\obj\\",
+      "outputPath": "C:\\Users\\Usuario\\Desktop\\Backend-Web-Services-CLONADOF\\ReWear.DeathClothe.API\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -8356,7 +8356,7 @@
         "auditLevel": "low",
         "auditMode": "direct"
       },
-      "SdkAnalysisLevel": "9.0.100"
+      "SdkAnalysisLevel": "9.0.300"
     },
     "frameworks": {
       "net9.0": {
@@ -8438,7 +8438,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.101/PortableRuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Users\\Usuario\\.dotnet\\sdk\\9.0.301/PortableRuntimeIdentifierGraph.json"
       }
     }
   }

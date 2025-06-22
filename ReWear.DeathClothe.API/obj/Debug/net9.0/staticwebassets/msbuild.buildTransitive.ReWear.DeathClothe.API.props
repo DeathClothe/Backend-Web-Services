@@ -1,0 +1,3 @@
+﻿<Project>
+  <Import Project="..\buildMultiTargeting\ReWear.DeathClothe.API.props" />
+</Project>

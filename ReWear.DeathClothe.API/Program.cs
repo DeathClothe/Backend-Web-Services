@@ -1,5 +1,10 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.OpenApi.Models;
+using ReWear.DeathClothe.API.Categories.Application.Internal.CommandServices;
+using ReWear.DeathClothe.API.Categories.Application.Internal.QueryServices;
+using ReWear.DeathClothe.API.Categories.Domain.Repositories;
+using ReWear.DeathClothe.API.Categories.Domain.Services;
+using ReWear.DeathClothe.API.Categories.Infrastructure.Persistence.EFC.Repositories;
 using ReWear.DeathClothe.API.Shared.Domain.Repositories;
 using ReWear.DeathClothe.API.Shared.Infrastructure.Interfaces.ASP.Configuration;
 using ReWear.DeathClothe.API.Shared.Infrastructure.Persistence.EFC.Configuration;
@@ -79,7 +84,9 @@ builder.Services.AddScoped<IUnitOfWork, UnitOfWork>();
 
 
 // Categories Bounded Context Dependency Injection Configuration
-
+builder.Services.AddScoped<ICategoryRepository, CategoryRepository>();
+builder.Services.AddScoped<ICategoryCommandService, CategoryCommandService>();
+builder.Services.AddScoped<ICategoryQueryService, CategoryQueryService>();
 
 
 

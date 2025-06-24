@@ -24,10 +24,6 @@
     </ItemGroup>
 
     <ItemGroup>
-      <Folder Include="Categories\Application\" />
-      <Folder Include="Categories\Domain\" />
-      <Folder Include="Categories\Infrastructure\" />
-      <Folder Include="Categories\Interfaces\" />
       <Folder Include="Clothes\Application\" />
       <Folder Include="Clothes\Domain\" />
       <Folder Include="Clothes\Infrastructure\" />

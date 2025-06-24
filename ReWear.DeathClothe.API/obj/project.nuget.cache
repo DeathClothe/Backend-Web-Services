@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "sVEZzg0nWrM=",
+  "dgSpecHash": "dLcB7xaTOCc=",
   "success": true,
-  "projectFilePath": "C:\\Users\\Usuario\\Desktop\\BACK WEB FINAL\\Backend-Web-Services-CLONADOF\\ReWear.DeathClothe.API\\ReWear.DeathClothe.API.csproj",
+  "projectFilePath": "C:\\Users\\Usuario\\Desktop\\BACK WEB FINAL\\Backend-Web-Services-Andrea\\ReWear.DeathClothe.API\\ReWear.DeathClothe.API.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Usuario\\.nuget\\packages\\bcrypt.net-next\\4.0.3\\bcrypt.net-next.4.0.3.nupkg.sha512",
     "C:\\Users\\Usuario\\.nuget\\packages\\bouncycastle.cryptography\\2.5.1\\bouncycastle.cryptography.2.5.1.nupkg.sha512",

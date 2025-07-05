@@ -1,14 +1,15 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.OpenApi.Models;
-using ReWear.DeathClothe.API.IAM.Application.Internal.CommandServices;
-using ReWear.DeathClothe.API.IAM.Application.Internal.QueryServices;
-using ReWear.DeathClothe.API.IAM.Domain.Repositories;
-using ReWear.DeathClothe.API.IAM.Domain.Services;
-using ReWear.DeathClothe.API.IAM.Infrastructure.Persistence.EFC.Repositories;
+using ReWear.DeathClothe.API.Categories.Application.Internal.CommandServices;
+using ReWear.DeathClothe.API.Categories.Application.Internal.QueryServices;
+using ReWear.DeathClothe.API.Categories.Domain.Repositories;
+using ReWear.DeathClothe.API.Categories.Domain.Services;
+using ReWear.DeathClothe.API.Categories.Infrastructure.Persistence.EFC.Repositories;
 using ReWear.DeathClothe.API.Shared.Domain.Repositories;
 using ReWear.DeathClothe.API.Shared.Infrastructure.Interfaces.ASP.Configuration;
 using ReWear.DeathClothe.API.Shared.Infrastructure.Persistence.EFC.Configuration;
 using ReWear.DeathClothe.API.Shared.Infrastructure.Persistence.EFC.Repositories;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
@@ -74,9 +75,9 @@ builder.Services.AddSwaggerGen(options =>
 builder.Services.AddScoped<IUnitOfWork, UnitOfWork>();
 
 // IAM Bounded Context Dependency Injection Configuration
-builder.Services.AddScoped<IProfileRepository, ProfileRepository>();
-builder.Services.AddScoped<IProfileCommandService, ProfileCommandService>();
-builder.Services.AddScoped<IProfileQueryService, ProfileQueryService>();
+
+
+
 
 // Clothes Bounded Context Dependency Injection Configuration
 
@@ -84,7 +85,9 @@ builder.Services.AddScoped<IProfileQueryService, ProfileQueryService>();
 
 
 // Categories Bounded Context Dependency Injection Configuration
-
+builder.Services.AddScoped<ICategoryRepository, CategoryRepository>();
+builder.Services.AddScoped<ICategoryCommandService, CategoryCommandService>();
+builder.Services.AddScoped<ICategoryQueryService, CategoryQueryService>();
 
 
 

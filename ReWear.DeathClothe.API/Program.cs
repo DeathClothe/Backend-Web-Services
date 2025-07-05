@@ -10,6 +10,11 @@ using ReWear.DeathClothe.API.Clothes.Application.Internal.QueryServices;
 using ReWear.DeathClothe.API.Clothes.Domain.Repositories;
 using ReWear.DeathClothe.API.Clothes.Domain.Services;
 using ReWear.DeathClothe.API.Clothes.Infrastructure.Persistence.EFC.Repositories;
+using ReWear.DeathClothe.API.IAM.Application.Internal.CommandServices;
+using ReWear.DeathClothe.API.IAM.Application.Internal.QueryServices;
+using ReWear.DeathClothe.API.IAM.Domain.Repositories;
+using ReWear.DeathClothe.API.IAM.Domain.Services;
+using ReWear.DeathClothe.API.IAM.Infrastructure.Persistence.EFC.Repositories;
 using ReWear.DeathClothe.API.Shared.Domain.Repositories;
 using ReWear.DeathClothe.API.Shared.Infrastructure.Interfaces.ASP.Configuration;
 using ReWear.DeathClothe.API.Shared.Infrastructure.Persistence.EFC.Configuration;
@@ -80,8 +85,9 @@ builder.Services.AddSwaggerGen(options =>
 builder.Services.AddScoped<IUnitOfWork, UnitOfWork>();
 
 // IAM Bounded Context Dependency Injection Configuration
-
-
+builder.Services.AddScoped<IProfileRepository, ProfileRepository>();
+builder.Services.AddScoped<IProfileCommandService, ProfileCommandService>();
+builder.Services.AddScoped<IProfileQueryService, ProfileQueryService>();
 
 
 // Clothes Bounded Context Dependency Injection Configuration
@@ -89,11 +95,11 @@ builder.Services.AddScoped<IClotheRepository, ClotheRepository>();
 builder.Services.AddScoped<IClotheCommandService, ClotheCommandService>();
 builder.Services.AddScoped<IClotheQueryService, ClotheQueryService>();
 
+
 // Categories Bounded Context Dependency Injection Configuration
 builder.Services.AddScoped<ICategoryRepository, CategoryRepository>();
 builder.Services.AddScoped<ICategoryCommandService, CategoryCommandService>();
 builder.Services.AddScoped<ICategoryQueryService, CategoryQueryService>();
-
 
 
 var app = builder.Build();

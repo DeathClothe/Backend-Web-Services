@@ -6,6 +6,5 @@ public record CreateProfileResource(
     string Email,
     string Password,
     string Direccion,
-    string Tipo,
-    string ImageProfile
-);
+    string Tipo
+    );

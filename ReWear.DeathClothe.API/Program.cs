@@ -19,6 +19,7 @@ using ReWear.DeathClothe.API.Shared.Domain.Repositories;
 using ReWear.DeathClothe.API.Shared.Infrastructure.Interfaces.ASP.Configuration;
 using ReWear.DeathClothe.API.Shared.Infrastructure.Persistence.EFC.Configuration;
 using ReWear.DeathClothe.API.Shared.Infrastructure.Persistence.EFC.Repositories;
+using ReWear.DeathClothe.API.Shared.Middleware;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -126,6 +127,8 @@ if (app.Environment.IsDevelopment())
 app.UseCors("AllowAllPolicy");
 
 app.UseHttpsRedirection();
+
+app.UseMiddleware<ErrorHandlingMiddleware>();
 
 app.UseAuthorization();
 

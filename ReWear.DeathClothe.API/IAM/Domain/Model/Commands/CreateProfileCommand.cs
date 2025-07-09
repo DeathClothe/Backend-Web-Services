@@ -6,6 +6,5 @@ public record CreateProfileCommand(
     string Email,
     string Password,
     string Direccion,
-    string Tipo,
-    string ImageProfile
+    string Tipo
 );

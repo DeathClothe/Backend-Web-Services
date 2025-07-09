@@ -5,7 +5,7 @@ namespace ReWear.DeathClothe.API.Clothes.Interfaces.REST.Transform;
 
 public class UpdateClotheCommandFromEntityToResourceAssembler
 {
-    public static UpdateClotheCommand ToCommandFromResource(int id, UpdateClotheResource resource)
+    public static UpdateClotheCommand ToCommandFromResource(string id, UpdateClotheResource resource)
     {
         return new UpdateClotheCommand(
             id,

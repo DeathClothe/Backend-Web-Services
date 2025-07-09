@@ -7,7 +7,7 @@ using ReWear.DeathClothe.API.Shared.Infrastructure.Persistence.EFC.Repositories;
 namespace ReWear.DeathClothe.API.IAM.Infrastructure.Persistence.EFC.Repositories;
 
 public class ProfileRepository(AppDbContext context)
-    : BaseRepository<Profile>(context), IProfileRepository
+    : BaseRepository<Profile,int>(context), IProfileRepository
 {
     public async Task<Profile?> FindProfileByEmailAsync(string email)
     {

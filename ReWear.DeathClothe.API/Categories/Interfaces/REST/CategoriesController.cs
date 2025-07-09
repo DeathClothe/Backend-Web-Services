@@ -34,14 +34,14 @@ public class CategoriesController(
         return Ok(categoryResources);
     }
 
-    [HttpGet("{categoryId:int}")]
+    [HttpGet("{categoryId}")]
     [SwaggerOperation(
         Summary = "Get category by ID",
         Description = "Get category by ID",
         OperationId = "GetCategoryById")]
     [SwaggerResponse(200, "Return category", typeof(IEnumerable<CategoryResource>))]
     [SwaggerResponse(404, "Category not found")]
-    public async Task<IActionResult> GetCategoryById(int categoryId)
+    public async Task<IActionResult> GetCategoryById(string categoryId)
     {
         var category = await categoryQueryService.Handle(new GetCategoryByIdQuery(categoryId));
         if (category is null)
@@ -51,6 +51,8 @@ public class CategoriesController(
         var categoryResource = CategoryResourceFromEntityAssembler.ToResourceFromEntity(category);
         return Ok(categoryResource);
     }
+    
+/*
 
     [HttpPost]
     [SwaggerOperation(
@@ -71,14 +73,15 @@ public class CategoriesController(
         return CreatedAtAction(nameof(GetCategoryById), new { categoryId = createdCategory.Id }, categoryResource);
     }
 
-    [HttpPut("{categoryId:int}")]
+
+    [HttpPut("{categoryId}")]
     [SwaggerOperation(
         Summary = "Update category",
         Description = "Update a category",
         OperationId = "UpdateCategory")]
     [SwaggerResponse(200, "Category updated successfully", typeof(CategoryResource))]
     [SwaggerResponse(404, "Category not found")]
-    public async Task<IActionResult> UpdateCategory(int categoryId, [FromBody] UpdateCategoryResource resource)
+    public async Task<IActionResult> UpdateCategory(string categoryId, [FromBody] UpdateCategoryResource resource)
     {
         if (categoryId != resource.Id) return BadRequest();
         var command = UpdateCategoryCommandFromEntityResourceAssembler.ToCommandFromResource(resource);
@@ -88,18 +91,20 @@ public class CategoriesController(
         return Ok(categoryResource);
     }
 
-    [HttpDelete("{categoryId:int}")]
+
+    [HttpDelete("{categoryId}")]
     [SwaggerOperation(
         Summary = "Delete category",
         Description = "Delete a category",
         OperationId = "DeleteCategory")]
     [SwaggerResponse(204, "Category deleted successfully")]
     [SwaggerResponse(404, "Category not found")]
-    public async Task<IActionResult> DeleteCategory(int categoryId)
+    public async Task<IActionResult> DeleteCategory(string categoryId)
     {
         var command = new DeleteCategoryCommand(categoryId);
         var result = await categoryCommandService.Handle(command);
         if (!result) return NotFound();
         return NoContent();
     }
+    */
 }

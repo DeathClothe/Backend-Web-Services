@@ -49,14 +49,14 @@ public class ClothesController(IClotheCommandService clotheCommandService, IClot
         return CreatedAtAction(nameof(GetClotheById), new { clotheId = createdClothe.Id }, clotheResource);
     }
 
-    [HttpGet("{clotheId:int}")]
+    [HttpGet("{clotheId}")]
     [SwaggerOperation(
         Summary = "Get Clothe by ID",
         Description = "Get Clothe by ID",
         OperationId = "GetClotheById")]
     [SwaggerResponse(200, "Return Clothe", typeof(ClotheResource))]
     [SwaggerResponse(404, "Clothe not found")]
-    public async Task<IActionResult> GetClotheById(int clotheId)
+    public async Task<IActionResult> GetClotheById(string clotheId)
     {
         var clothe = await clotheQueryService.Handle(new GetClotheByIdQuery(clotheId));
         if (clothe is null) return NotFound();
@@ -64,14 +64,14 @@ public class ClothesController(IClotheCommandService clotheCommandService, IClot
         return Ok(clotheResource);
     }
 
-    [HttpPut("{clotheId:int}")]
+    [HttpPut("{clotheId}")]
     [SwaggerOperation(
         Summary = "Update Clothe",
         Description = "Update a Clothe",
         OperationId = "UpdateClothe")]
     [SwaggerResponse(200, "Clothe updated successfully", typeof(ClotheResource))]
     [SwaggerResponse(404, "Clothe not found")]
-    public async Task<IActionResult> UpdateClothe(int clotheId, [FromBody] UpdateClotheResource resource)
+    public async Task<IActionResult> UpdateClothe(string clotheId, [FromBody] UpdateClotheResource resource)
     {
         var command = UpdateClotheCommandFromEntityToResourceAssembler.ToCommandFromResource(clotheId, resource);
         var updatedClothe = await clotheCommandService.Handle(command);
@@ -80,14 +80,14 @@ public class ClothesController(IClotheCommandService clotheCommandService, IClot
         return Ok(clotheResource);
     }
 
-    [HttpDelete("{clotheId:int}")]
+    [HttpDelete("{clotheId}")]
     [SwaggerOperation(
         Summary = "Delete Clothe",
         Description = "Delete a Clothe",
         OperationId = "DeleteClothe")]
     [SwaggerResponse(204, "Clothe deleted successfully")]
     [SwaggerResponse(404, "Clothe not found")]
-    public async Task<IActionResult> DeleteClothe(int clotheId)
+    public async Task<IActionResult> DeleteClothe(string clotheId)
     {
         var command = new DeleteClotheCommand(clotheId);
         var result = await clotheCommandService.Handle(command);

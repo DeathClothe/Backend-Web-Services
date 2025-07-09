@@ -4,7 +4,7 @@ namespace ReWear.DeathClothe.API.Categories.Domain.Model.Aggregates;
 
 public partial class Category
 {
-    public int Id { get; private set; }
+    public string Id { get; private set; }
     
     public string Nombre { get; private set; }
     

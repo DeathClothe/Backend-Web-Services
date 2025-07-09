@@ -8313,24 +8313,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Usuario\\.nuget\\packages\\": {},
-    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
+    "C:\\Users\\Lore\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Usuario\\Desktop\\BACK WEB FINAL\\Backend-Web-Services-Andrea\\ReWear.DeathClothe.API\\ReWear.DeathClothe.API.csproj",
+      "projectUniqueName": "C:\\Users\\Lore\\RiderProjects\\Backend-Web-Services\\ReWear.DeathClothe.API\\ReWear.DeathClothe.API.csproj",
       "projectName": "ReWear.DeathClothe.API",
-      "projectPath": "C:\\Users\\Usuario\\Desktop\\BACK WEB FINAL\\Backend-Web-Services-Andrea\\ReWear.DeathClothe.API\\ReWear.DeathClothe.API.csproj",
-      "packagesPath": "C:\\Users\\Usuario\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Usuario\\Desktop\\BACK WEB FINAL\\Backend-Web-Services-Andrea\\ReWear.DeathClothe.API\\obj\\",
+      "projectPath": "C:\\Users\\Lore\\RiderProjects\\Backend-Web-Services\\ReWear.DeathClothe.API\\ReWear.DeathClothe.API.csproj",
+      "packagesPath": "C:\\Users\\Lore\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\Lore\\RiderProjects\\Backend-Web-Services\\ReWear.DeathClothe.API\\obj\\",
       "projectStyle": "PackageReference",
-      "fallbackFolders": [
-        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-      ],
       "configFilePaths": [
-        "C:\\Users\\Usuario\\AppData\\Roaming\\NuGet\\NuGet.Config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+        "C:\\Users\\Lore\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -8356,7 +8351,7 @@
         "auditLevel": "low",
         "auditMode": "direct"
       },
-      "SdkAnalysisLevel": "9.0.100"
+      "SdkAnalysisLevel": "9.0.300"
     },
     "frameworks": {
       "net9.0": {
@@ -8438,7 +8433,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.101/PortableRuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Users\\Lore\\.dotnet\\sdk\\9.0.301/PortableRuntimeIdentifierGraph.json"
       }
     }
   }

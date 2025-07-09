@@ -1,60 +1,63 @@
 ﻿using ReWear.DeathClothe.API.Clothes.Domain.Model.Commands;
+using ReWear.DeathClothe.API.Clothes.Domain.Model.ValueObjects;
 
 namespace ReWear.DeathClothe.API.Clothes.Domain.Model.Aggregates;
 
-public class Clothe
+public partial class Clothe
 {
-    public int Id { get; }
-    public string Nombre { get; private set; }
+    public string  Id { get; set; }
+    public string Nombre { get; set; }
     
-    public string Descripcion { get; private set; }
+    public string Descripcion { get; set; }
     
-    public int Precio { get; private set; }
+    public int Precio { get; set; }
     
-    public string Tipo {get; private set;}
+    public string Tipo {get; set;}
     
-    public string Talla {get; private set;}
+    public Talla Talla { get; set; }
+    public Color Color { get; set; }
     
-    public string Color  {get; private set;}
+    public int Usuario {get; set;}
     
-    public int Usuario {get; private set;}
+    public string Imagen {get; set;}
     
-    public string Imagen {get; private set;}
+    public List<string> Categorias {get; set;}
     
-    public List<string> Categorias {get; private set;}
+    public string ApiId { get; set; } = "v1";
 
-    public Clothe(string nombre, string descripcion, int precio, string tipo, string talla, string color, int usuario,
+    public Clothe()
+    {
+    }
+
+    public Clothe(string id,string nombre, string descripcion, int precio, 
+        string tipo, string talla,
+        string color, int usuario,
         string imagen)
     {
+        if (string.IsNullOrWhiteSpace(nombre))
+            throw new ArgumentException("El nombre es obligatorio.");
+
+        if (string.IsNullOrWhiteSpace(tipo))
+            throw new ArgumentException("El tipo es obligatorio.");
+        if (precio < 0)
+        {
+            throw new ArgumentException("Precio no puede ser negativo");
+        }
+       
+        Id = id ?? throw new ArgumentException("Id no puede ser null");
        Nombre = nombre;
-       Descripcion = descripcion;
+       Descripcion = descripcion ?? "";
        Precio = precio;
        Tipo = tipo;
-       Talla = talla;
-       Color = color;
+       Talla = new Talla(talla);
+       Color = new  Color(color);
        Usuario = usuario;
-       Imagen = imagen;
-        
-        Categorias = new List<string>();
+       Imagen =  imagen ?? "";
+       Categorias = new List<string>();
+       ApiId = "v1";
+
     }
 
-    public Clothe(CreateClotheCommand command)
-        : this(command.Nombre, command.Descripcion, command.Precio,
-            command.Tipo, command.Talla, command.Color, command.Usuario,
-            command.Imagen)
-    {
-        Categorias = command.Categorias ?? new List<string>();
-    }
-    public void UpdateFromCommand(UpdateClotheCommand command)
-    {
-        Nombre = command.Nombre;
-        Descripcion = command.Descripcion;
-        Precio = command.Precio;
-        Tipo = command.Tipo;
-        Talla = command.Talla;
-        Color = command.Color;
-        Imagen = command.Imagen;
-        Categorias = command.Categorias ?? new List<string>();
-    }
+   
 
 }

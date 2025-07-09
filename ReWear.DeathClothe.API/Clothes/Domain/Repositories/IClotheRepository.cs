@@ -3,7 +3,8 @@ using ReWear.DeathClothe.API.Shared.Domain.Repositories;
 
 namespace ReWear.DeathClothe.API.Clothes.Domain.Repositories;
 
-public interface IClotheRepository : IBaseRepository<Clothe>
+public interface IClotheRepository : IBaseRepository<Clothe, string>
 {
-    
+    Task<string?> GetLastClotheIdAsync();
+
 }

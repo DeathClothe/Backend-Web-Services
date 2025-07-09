@@ -18,7 +18,7 @@ public partial class Profile
     
     public string Tipo { get; private set; }
     
-    public string ImageProfile { get; private set; }
+    public string ImageProfile { get; private set; } = "";
     
     public List<string> Armario { get; private set; }
     
@@ -27,14 +27,21 @@ public partial class Profile
     public List<string> Publicados { get; private set; }
     
     public List<string> Vendidos { get; private set; }
-    
+    public Profile(string nombre,
+        string apellidos,
+        string email,
+        string password,
+        string direccion,
+        string tipo)
+        : this(nombre, apellidos, email, password, direccion, tipo, "") { }
+
     public Profile( string nombre,
         string apellidos,
         string email,
         string password,
         string direccion,
         string tipo,
-        string imageProfile)
+        string? imageProfile)
     {
         Nombre = nombre;
         Apellidos = apellidos;
@@ -42,7 +49,7 @@ public partial class Profile
         Password = password;
         Direccion = direccion;
         Tipo = tipo;
-        ImageProfile = imageProfile;
+        ImageProfile = imageProfile ?? ""; 
         
         Armario = new List<string>();
         Favoritos = new List<string>();
@@ -51,10 +58,9 @@ public partial class Profile
     }
     
     public Profile(CreateProfileCommand command)
-        : this(command.Nombre, command.Apellidos, command.Email, command.Password, command.Direccion, command.Tipo, command.ImageProfile)
-    {
-    }
-    
+        : this(command.Nombre, command.Apellidos, command.Email, command.Password, command.Direccion, command.Tipo)
+    { }
+
     public void UpdateFromCommand(UpdateProfileCommand command)
     {
         Nombre = command.Nombre;

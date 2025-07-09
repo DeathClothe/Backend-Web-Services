@@ -1,7 +1,7 @@
 ﻿namespace ReWear.DeathClothe.API.Clothes.Interfaces.REST.Resources;
 
 public record ClotheResource(
-    int Id,
+    string Id,
     string Nombre,
     string Descripcion,
     int Precio,
@@ -10,5 +10,6 @@ public record ClotheResource(
     string Color,
     int Usuario,
     string Imagen,
-    List<string> Categorias
+    List<string> Categorias,
+    string ApiId
 );

@@ -6,6 +6,7 @@ using ReWear.DeathClothe.API.Shared.Infrastructure.Persistence.EFC.Repositories;
 namespace ReWear.DeathClothe.API.Categories.Infrastructure.Persistence.EFC.Repositories;
 
 public class CategoryRepository(AppDbContext context)
-    : BaseRepository<Category>(context), ICategoryRepository
+    : BaseRepository<Category,string>(context), ICategoryRepository
 {
+    
 }

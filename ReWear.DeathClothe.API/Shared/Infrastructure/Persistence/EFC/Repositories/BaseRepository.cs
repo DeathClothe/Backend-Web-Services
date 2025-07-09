@@ -4,7 +4,7 @@ using ReWear.DeathClothe.API.Shared.Infrastructure.Persistence.EFC.Configuration
 
 namespace ReWear.DeathClothe.API.Shared.Infrastructure.Persistence.EFC.Repositories;
 
-public class BaseRepository<TEntity> : IBaseRepository<TEntity> where TEntity : class
+public class BaseRepository<TEntity,TId> : IBaseRepository<TEntity,TId> where TEntity : class
 {
     protected readonly AppDbContext Context;
 
@@ -18,7 +18,7 @@ public class BaseRepository<TEntity> : IBaseRepository<TEntity> where TEntity : 
         await Context.Set<TEntity>().AddAsync(entity);
     }
 
-    public async Task<TEntity?> FindByIdAsync(int id)
+    public async Task<TEntity?> FindByIdAsync(TId id)
     {
         return await Context.Set<TEntity>().FindAsync(id);
     }

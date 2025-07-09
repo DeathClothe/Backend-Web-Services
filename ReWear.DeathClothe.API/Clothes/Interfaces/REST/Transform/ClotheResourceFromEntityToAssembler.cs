@@ -13,11 +13,12 @@ public class ClotheResourceFromEntityToAssembler
             resource.Descripcion,
             resource.Precio,
             resource.Tipo,
-            resource.Talla,
-            resource.Color,
+            resource.Talla.ToString(),
+            resource.Color.ToString(),
             resource.Usuario,
             resource.Imagen,
-            resource.Categorias
+            resource.Categorias,
+            resource.ApiId
         );
     }
 }

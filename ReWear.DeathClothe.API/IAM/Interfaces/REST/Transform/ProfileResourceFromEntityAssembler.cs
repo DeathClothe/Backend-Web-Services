@@ -10,6 +10,7 @@ public static class ProfileResourceFromEntityAssembler
         return new ProfileResource(
             profile.Id,
             profile.Nombre,
+            profile.Password,
             profile.Apellidos,
             profile.Email,
             profile.Direccion,

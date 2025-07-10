@@ -8,4 +8,6 @@ public interface IProfileRepository : IBaseRepository<Profile, int>
     bool ExistsByEmail(string email);
     
     Task<Profile?> FindByEmailAsync(string email);
+    
+    Task UpdateAsync(Profile profile);
 }

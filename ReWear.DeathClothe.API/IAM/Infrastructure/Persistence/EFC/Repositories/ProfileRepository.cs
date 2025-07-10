@@ -19,4 +19,10 @@ public class ProfileRepository : BaseRepository<Profile, int>, IProfileRepositor
     {
         return await Context.Set<Profile>().FirstOrDefaultAsync(profile => profile.Email.Equals(email));
     }
+    
+    public async Task UpdateAsync(Profile profile)
+    {
+        Context.Set<Profile>().Update(profile);
+        await Context.SaveChangesAsync();
+    }
 }

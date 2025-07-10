@@ -8,4 +8,6 @@ public interface IProfileCommandService
     Task Handle(SignUpCommand command);
 
     Task<(Profile profile, string token)> Handle(SignInCommand command);
+    
+    Task<Profile> Handle(UpdateProfileCommand command);
 }

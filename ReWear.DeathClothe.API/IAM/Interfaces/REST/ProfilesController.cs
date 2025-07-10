@@ -45,4 +45,26 @@ public class ProfilesController(IProfileQueryService profileQueryService) : Cont
         var profileResources = profiles.Select(ProfileResourceFromEntityAssembler.ToResourceFromEntity);
         return Ok(profileResources);
     }
+    
+    [HttpPut("{id:int}")]
+    [SwaggerOperation(
+        Summary = "Update profile by id",
+        Description = "Update profile by id",
+        OperationId = "UpdateProfileById")]
+    [SwaggerResponse(StatusCodes.Status200OK, "Profile updated", typeof(ProfileResource))]
+    [SwaggerResponse(StatusCodes.Status404NotFound, "Profile not found")]
+    public async Task<IActionResult> UpdateProfile(int id, [FromBody] UpdateProfileResource resource, [FromServices] IProfileCommandService profileCommandService)
+    {
+        try
+        {
+            var command = UpdateProfileCommandFromResourceAssembler.ToCommandFromResource(id, resource);
+            var updatedProfile = await profileCommandService.Handle(command);
+            var profileResource = ProfileResourceFromEntityAssembler.ToResourceFromEntity(updatedProfile);
+            return Ok(profileResource);
+        }
+        catch (Exception ex)
+        {
+            return NotFound(new { message = ex.Message });
+        }
+    }
 }

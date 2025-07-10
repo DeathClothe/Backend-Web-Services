@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("ReWear.DeathClothe.API")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+06dd68ea1f0b34c8b1578870d9e02e59121b88d9")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+b1ebd3247ce71cd687f5cffdbbac79fdf2ceebd2")]
 [assembly: System.Reflection.AssemblyProductAttribute("ReWear.DeathClothe.API")]
 [assembly: System.Reflection.AssemblyTitleAttribute("ReWear.DeathClothe.API")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

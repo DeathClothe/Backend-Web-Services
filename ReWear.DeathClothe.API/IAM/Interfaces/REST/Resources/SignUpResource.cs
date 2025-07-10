@@ -6,6 +6,5 @@ public record SignUpResource(
     string Email,
     string Password,
     string Direccion,
-    string Tipo,
-    string ImageProfile
+    string Tipo
 );

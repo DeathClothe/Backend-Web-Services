@@ -33,8 +33,7 @@ public partial class Profile
         string email,
         string passwordHash,
         string direccion,
-        string tipo,
-        string imageProfile)
+        string tipo)
     {
         Nombre = nombre;
         Apellidos = apellidos;
@@ -42,7 +41,7 @@ public partial class Profile
         PasswordHash = passwordHash;
         Direccion = direccion;
         Tipo = tipo;
-        ImageProfile = imageProfile;
+        ImageProfile = "";
         
         Armario = new List<string>();
         Favoritos = new List<string>();
@@ -58,7 +57,7 @@ public partial class Profile
         PasswordHash = hashedPasswordHash;
         Direccion = command.Direccion;
         Tipo = command.Tipo;
-        ImageProfile = command.ImageProfile;
+        ImageProfile = "";
         
         Armario = new List<string>();
         Favoritos = new List<string>();

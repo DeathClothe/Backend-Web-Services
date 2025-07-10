@@ -13,8 +13,7 @@ public class SignUpCommandFromResourceAssembler
             resource.Email,
             resource.Password,
             resource.Direccion,
-            resource.Tipo,
-            resource.ImageProfile
+            resource.Tipo
         );
     }
 }

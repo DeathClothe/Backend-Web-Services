@@ -6,6 +6,5 @@ public record SignUpCommand(
     string Email,
     string Password,
     string Direccion,
-    string Tipo,
-    string ImageProfile
+    string Tipo
     );

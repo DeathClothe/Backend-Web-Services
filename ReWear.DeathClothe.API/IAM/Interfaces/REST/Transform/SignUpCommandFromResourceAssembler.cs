@@ -1,15 +1,13 @@
-using ReWear.DeathClothe.API.IAM.Domain.Model.Commands;
+﻿using ReWear.DeathClothe.API.IAM.Domain.Model.Commands;
 using ReWear.DeathClothe.API.IAM.Interfaces.REST.Resources;
 
 namespace ReWear.DeathClothe.API.IAM.Interfaces.REST.Transform;
 
-
-public static class UpdateProfileCommandFromEntityResourceAssembler
+public class SignUpCommandFromResourceAssembler
 {
-    public static UpdateProfileCommand ToCommandFromResource(UpdateProfileResource resource)
+    public static SignUpCommand ToCommandFromResource(SignUpResource resource)
     {
-        return new UpdateProfileCommand(
-            resource.Id,
+        return new SignUpCommand(
             resource.Nombre,
             resource.Apellidos,
             resource.Email,

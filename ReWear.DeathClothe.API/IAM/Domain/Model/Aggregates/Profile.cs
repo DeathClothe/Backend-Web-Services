@@ -1,10 +1,10 @@
-using ReWear.DeathClothe.API.IAM.Domain.Model.Commands;
+﻿using ReWear.DeathClothe.API.IAM.Domain.Model.Commands;
 
 namespace ReWear.DeathClothe.API.IAM.Domain.Model.Aggregates;
 
 public partial class Profile
 {
-    public int Id { get; }
+    public int Id { get; private set; }
     
     public string Nombre { get; private set; }
     
@@ -12,13 +12,13 @@ public partial class Profile
     
     public string Email { get; private set; }
     
-    public string Password { get; private set; }
+    public string PasswordHash { get; private set; }
     
     public string Direccion { get; private set; }
     
     public string Tipo { get; private set; }
     
-    public string ImageProfile { get; private set; } = "";
+    public string ImageProfile { get; private set; }
     
     public List<string> Armario { get; private set; }
     
@@ -27,29 +27,22 @@ public partial class Profile
     public List<string> Publicados { get; private set; }
     
     public List<string> Vendidos { get; private set; }
-    public Profile(string nombre,
-        string apellidos,
-        string email,
-        string password,
-        string direccion,
-        string tipo)
-        : this(nombre, apellidos, email, password, direccion, tipo, "") { }
-
+    
     public Profile( string nombre,
         string apellidos,
         string email,
-        string password,
+        string passwordHash,
         string direccion,
         string tipo,
-        string? imageProfile)
+        string imageProfile)
     {
         Nombre = nombre;
         Apellidos = apellidos;
         Email = email;
-        Password = password;
+        PasswordHash = passwordHash;
         Direccion = direccion;
         Tipo = tipo;
-        ImageProfile = imageProfile ?? ""; 
+        ImageProfile = imageProfile;
         
         Armario = new List<string>();
         Favoritos = new List<string>();
@@ -57,18 +50,19 @@ public partial class Profile
         Vendidos = new List<string>();
     }
     
-    public Profile(CreateProfileCommand command)
-        : this(command.Nombre, command.Apellidos, command.Email, command.Password, command.Direccion, command.Tipo)
-    { }
-
-    public void UpdateFromCommand(UpdateProfileCommand command)
+    public Profile(SignUpCommand command, string hashedPasswordHash)
     {
         Nombre = command.Nombre;
         Apellidos = command.Apellidos;
         Email = command.Email;
-        Password = command.Password;
+        PasswordHash = hashedPasswordHash;
         Direccion = command.Direccion;
         Tipo = command.Tipo;
         ImageProfile = command.ImageProfile;
+        
+        Armario = new List<string>();
+        Favoritos = new List<string>();
+        Publicados = new List<string>();
+        Vendidos = new List<string>();
     }
 }

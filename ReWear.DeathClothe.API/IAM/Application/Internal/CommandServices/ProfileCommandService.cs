@@ -1,3 +1,4 @@
+﻿using ReWear.DeathClothe.API.IAM.Application.Internal.OutboundServices;
 using ReWear.DeathClothe.API.IAM.Domain.Model.Aggregates;
 using ReWear.DeathClothe.API.IAM.Domain.Model.Commands;
 using ReWear.DeathClothe.API.IAM.Domain.Repositories;
@@ -8,51 +9,46 @@ namespace ReWear.DeathClothe.API.IAM.Application.Internal.CommandServices;
 
 public class ProfileCommandService(
     IProfileRepository profileRepository,
-    IUnitOfWork unitOfWork) : IProfileCommandService
+    IUnitOfWork unitOfWork,
+    ITokenService tokenService,
+    IHashingService hashingService
+    ) : IProfileCommandService
 {
-    public async Task<Profile?> Handle(CreateProfileCommand command)
+    public async Task Handle(SignUpCommand command)
     {
-        var profile = new Profile(command);
+        if (profileRepository.ExistsByEmail(command.Email))
+        {
+            throw new Exception($"Username {command.Email} already exists");
+        }
+        
+        var hashedPassword = hashingService.HashPassword(command.Password);
+        var profile = new Profile(command, hashedPassword);
         try
         {
             await profileRepository.AddAsync(profile);
             await unitOfWork.CompleteAsync();
-            return profile;
         }
         catch (Exception e)
         {
-            return null;
-        }
-    }
-    public async Task<Profile?> Handle(UpdateProfileCommand command)
-    {
-        var profile = await profileRepository.FindByIdAsync(command.Id);
-        if (profile == null) return null;
-        try
-        {
-            profile.UpdateFromCommand(command);
-            await unitOfWork.CompleteAsync();
-            return profile;
-        }
-        catch (Exception e)
-        {
-            return null;
+            throw new Exception($"An error ocurred while creating the profile: {e.Message}");
         }
     }
 
-    public async Task<bool> Handle(DeleteProfileCommand command)
+    public async Task<(Profile profile, string token)> Handle(SignInCommand command)
     {
-        var profile = await profileRepository.FindByIdAsync(command.Id);
-        if (profile == null) return false;
-        try
+        var profile = await profileRepository.FindByEmailAsync(command.Email);
+
+        if (profile is null)
         {
-            profileRepository.Delete(profile);
-            await unitOfWork.CompleteAsync();
-            return true;
+            throw new Exception($"Profile {command.Email} not found");
         }
-        catch (Exception e)
+
+        if (!hashingService.VerifyPassword(command.Password, profile.PasswordHash))
         {
-            return false;
+            throw new Exception("Invalid password");
         }
+
+        var token = tokenService.GenerateToken(profile);
+        return (profile, token);
     }
 }

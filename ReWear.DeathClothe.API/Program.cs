@@ -11,10 +11,14 @@ using ReWear.DeathClothe.API.Clothes.Domain.Repositories;
 using ReWear.DeathClothe.API.Clothes.Domain.Services;
 using ReWear.DeathClothe.API.Clothes.Infrastructure.Persistence.EFC.Repositories;
 using ReWear.DeathClothe.API.IAM.Application.Internal.CommandServices;
+using ReWear.DeathClothe.API.IAM.Application.Internal.OutboundServices;
 using ReWear.DeathClothe.API.IAM.Application.Internal.QueryServices;
 using ReWear.DeathClothe.API.IAM.Domain.Repositories;
 using ReWear.DeathClothe.API.IAM.Domain.Services;
+using ReWear.DeathClothe.API.IAM.Infrastructure.Hashing.BCrypt.Services;
 using ReWear.DeathClothe.API.IAM.Infrastructure.Persistence.EFC.Repositories;
+using ReWear.DeathClothe.API.IAM.Infrastructure.Tokens.JWT.Configuration;
+using ReWear.DeathClothe.API.IAM.Infrastructure.Tokens.JWT.Services;
 using ReWear.DeathClothe.API.Shared.Domain.Repositories;
 using ReWear.DeathClothe.API.Shared.Infrastructure.Interfaces.ASP.Configuration;
 using ReWear.DeathClothe.API.Shared.Infrastructure.Persistence.EFC.Configuration;
@@ -87,8 +91,11 @@ builder.Services.AddScoped<IUnitOfWork, UnitOfWork>();
 
 // IAM Bounded Context Dependency Injection Configuration
 builder.Services.AddScoped<IProfileRepository, ProfileRepository>();
+builder.Services.Configure<TokenSettings>(builder.Configuration.GetSection("TokenSettings"));
 builder.Services.AddScoped<IProfileCommandService, ProfileCommandService>();
 builder.Services.AddScoped<IProfileQueryService, ProfileQueryService>();
+builder.Services.AddScoped<ITokenService, TokenService>();
+builder.Services.AddScoped<IHashingService, HashingService>();
 
 
 // Clothes Bounded Context Dependency Injection Configuration

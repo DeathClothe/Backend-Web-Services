@@ -1,7 +1,6 @@
-namespace ReWear.DeathClothe.API.IAM.Interfaces.REST.Resources;
+﻿namespace ReWear.DeathClothe.API.IAM.Interfaces.REST.Resources;
 
-public record UpdateProfileResource(
-    int Id,
+public record SignUpResource(
     string Nombre,
     string Apellidos,
     string Email,

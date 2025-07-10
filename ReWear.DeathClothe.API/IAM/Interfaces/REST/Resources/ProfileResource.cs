@@ -1,9 +1,8 @@
-namespace ReWear.DeathClothe.API.IAM.Interfaces.REST.Resources;
+﻿namespace ReWear.DeathClothe.API.IAM.Interfaces.REST.Resources;
 
 public record ProfileResource(
     int Id,
     string Nombre,
-    string Contra,
     string Apellidos,
     string Email,
     string Direccion,

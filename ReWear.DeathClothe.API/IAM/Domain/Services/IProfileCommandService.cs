@@ -1,11 +1,11 @@
-namespace ReWear.DeathClothe.API.IAM.Domain.Services;
-
-using ReWear.DeathClothe.API.IAM.Domain.Model.Aggregates;
+﻿using ReWear.DeathClothe.API.IAM.Domain.Model.Aggregates;
 using ReWear.DeathClothe.API.IAM.Domain.Model.Commands;
+
+namespace ReWear.DeathClothe.API.IAM.Domain.Services;
 
 public interface IProfileCommandService
 {
-    Task<Profile> Handle(CreateProfileCommand command);
-    Task<Profile?> Handle(UpdateProfileCommand command);
-    Task<bool> Handle(DeleteProfileCommand command);
+    Task Handle(SignUpCommand command);
+
+    Task<(Profile profile, string token)> Handle(SignInCommand command);
 }

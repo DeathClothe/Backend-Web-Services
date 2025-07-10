@@ -1,7 +1,6 @@
-namespace ReWear.DeathClothe.API.IAM.Domain.Model.Commands;
+﻿namespace ReWear.DeathClothe.API.IAM.Domain.Model.Commands;
 
-public record UpdateProfileCommand(
-    int Id,
+public record SignUpCommand(
     string Nombre,
     string Apellidos,
     string Email,
@@ -9,4 +8,4 @@ public record UpdateProfileCommand(
     string Direccion,
     string Tipo,
     string ImageProfile
-);
+    );

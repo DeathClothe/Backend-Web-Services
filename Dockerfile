@@ -1,16 +1,14 @@
 FROM mcr.microsoft.com/dotnet/sdk:9.0-preview AS build
 WORKDIR /app
 
-# Copia todo el código fuente
-COPY . .
+COPY . ./
+WORKDIR /app/ReWear.DeathClothe.API
 
-# Restaurar la solución completa
-RUN dotnet restore DeathClothe-Backend.sln
+RUN dotnet restore
+RUN dotnet publish -c Release -o /app/out
 
-# Publicar el proyecto principal desde la solución
-RUN dotnet publish ReWear.DeathClothe.API/ReWear.DeathClothe.API.csproj -c Release -o out
-
-FROM mcr.microsoft.com/dotnet/aspnet:9.0-preview AS runtime
+# ⚠️ CAMBIO: usamos SDK también como runtime temporalmente
+FROM mcr.microsoft.com/dotnet/sdk:9.0-preview AS runtime
 WORKDIR /app
 COPY --from=build /app/out ./
 

@@ -1,20 +1,18 @@
 FROM mcr.microsoft.com/dotnet/sdk:9.0-preview AS build
 WORKDIR /app
 
-# Copia todo el contenido del backend (la solución completa)
+# Copia todo el código fuente
 COPY . .
 
-# Ve a la carpeta donde está el proyecto principal
-WORKDIR /app/ReWear.DeathClothe.API
+# Restaurar la solución completa
+RUN dotnet restore DeathClothe-Backend.sln
 
-# Restaura y publica
-RUN dotnet restore
-RUN dotnet publish -c Release -o out
+# Publicar el proyecto principal desde la solución
+RUN dotnet publish ReWear.DeathClothe.API/ReWear.DeathClothe.API.csproj -c Release -o out
 
-# Imagen final
 FROM mcr.microsoft.com/dotnet/aspnet:9.0-preview AS runtime
 WORKDIR /app
-COPY --from=build /app/ReWear.DeathClothe.API/out ./
+COPY --from=build /app/out ./
 
 ENV ASPNETCORE_URLS=http://+:8080
 EXPOSE 8080

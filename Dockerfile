@@ -11,10 +11,11 @@ FROM mcr.microsoft.com/dotnet/runtime-deps:8.0 AS runtime
 
 # Instala dependencias y runtime 9 preview
 RUN apt-get update && apt-get install -y wget tar gzip libicu72 libssl3 ca-certificates && \
-    wget -O dotnet.tar.gz https://aka.ms/dotnet-runtime-9.0.0-preview-linux-x64 && \
+    wget -O dotnet.tar.gz https://dotnetcli.azureedge.net/dotnet/Runtime/9.0.0-preview.7/dotnet-runtime-9.0.0-preview.7-linux-x64.tar.gz && \
     mkdir -p /usr/share/dotnet && \
     tar -zxf dotnet.tar.gz -C /usr/share/dotnet && \
     rm dotnet.tar.gz
+
 
 ENV DOTNET_ROOT=/usr/share/dotnet
 ENV PATH=$PATH:/usr/share/dotnet

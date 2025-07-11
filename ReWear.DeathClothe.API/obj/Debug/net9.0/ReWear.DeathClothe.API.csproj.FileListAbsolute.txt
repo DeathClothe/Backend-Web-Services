@@ -509,3 +509,4 @@ D:\DeathClothe\Backend\ReWear.DeathClothe.API\obj\Debug\net9.0\refint\ReWear.Dea
 D:\DeathClothe\Backend\ReWear.DeathClothe.API\obj\Debug\net9.0\ReWear.DeathClothe.API.pdb
 D:\DeathClothe\Backend\ReWear.DeathClothe.API\obj\Debug\net9.0\ReWear.DeathClothe.API.genruntimeconfig.cache
 D:\DeathClothe\Backend\ReWear.DeathClothe.API\obj\Debug\net9.0\ref\ReWear.DeathClothe.API.dll
+C:\Users\Lore\RiderProjects\Backend-Web-Services\ReWear.DeathClothe.API\bin\Debug\net9.0\Newtonsoft.Json.dll

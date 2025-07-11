@@ -1,5 +1,6 @@
 ﻿using System.Net;
-using System.Text.Json;
+using Newtonsoft.Json;
+
 
 namespace ReWear.DeathClothe.API.Shared.Middleware;
 
@@ -38,7 +39,7 @@ public class ErrorHandlingMiddleware
     {
         _logger.LogError(exception, " Unhandled exception");
 
-        var result = JsonSerializer.Serialize(new
+        var result = JsonConvert.SerializeObject(new
         {
             message = exception.Message,
             type = exception.GetType().Name,

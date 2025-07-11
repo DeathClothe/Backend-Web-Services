@@ -58,15 +58,22 @@ public class ProfileCommandService(
         if (profile is null)
             throw new Exception($"Profile with id {command.Id} not found");
 
-        // Actualiza los campos permitidos
+        // Actualiza los campos de texto
         profile.GetType().GetProperty("Nombre")?.SetValue(profile, command.Nombre);
         profile.GetType().GetProperty("Apellidos")?.SetValue(profile, command.Apellidos);
         profile.GetType().GetProperty("Direccion")?.SetValue(profile, command.Direccion);
         profile.GetType().GetProperty("Tipo")?.SetValue(profile, command.Tipo);
         profile.GetType().GetProperty("ImageProfile")?.SetValue(profile, command.ImageProfile);
 
+        // ✅ Ahora también actualiza los arrays
+        profile.GetType().GetProperty("Armario")?.SetValue(profile, command.Armario);
+        profile.GetType().GetProperty("Favoritos")?.SetValue(profile, command.Favoritos);
+        profile.GetType().GetProperty("Publicados")?.SetValue(profile, command.Publicados);
+        profile.GetType().GetProperty("Vendidos")?.SetValue(profile, command.Vendidos);
+
         await profileRepository.UpdateAsync(profile);
         await unitOfWork.CompleteAsync();
         return profile;
     }
+
 }

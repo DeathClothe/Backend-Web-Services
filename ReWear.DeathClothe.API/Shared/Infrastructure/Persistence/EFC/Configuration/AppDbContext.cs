@@ -6,7 +6,7 @@ using ReWear.DeathClothe.API.Categories.Domain.Model.Aggregates;
 using ReWear.DeathClothe.API.Categories.Infrastructure.Persistence.EFC.Configurations.Extensions;
 using ReWear.DeathClothe.API.Clothes.Infrastructure.Persistence.EFC.Configurations.Extensions;
 using ReWear.DeathClothe.API.Shared.Infrastructure.Persistence.EFC.Configuration.Extensions;
-
+using System.Text.Json;
 namespace ReWear.DeathClothe.API.Shared.Infrastructure.Persistence.EFC.Configuration;
 
 public class AppDbContext(DbContextOptions options) : DbContext(options)
@@ -38,30 +38,34 @@ public class AppDbContext(DbContextOptions options) : DbContext(options)
         modelBuilder.Entity<Profile>()
             .Property(p => p.Armario)
             .HasConversion(
-                v => string.Join(',', v),
-                v => v.Split(',', StringSplitOptions.RemoveEmptyEntries).ToList()
-            );
+                v => JsonSerializer.Serialize(v, (JsonSerializerOptions)null),
+                v => JsonSerializer.Deserialize<List<string>>(v, (JsonSerializerOptions)null)
+            )
+            .HasColumnType("LONGTEXT");
 
         modelBuilder.Entity<Profile>()
             .Property(p => p.Favoritos)
             .HasConversion(
-                v => string.Join(',', v),
-                v => v.Split(',', StringSplitOptions.RemoveEmptyEntries).ToList()
-            );
+                v => JsonSerializer.Serialize(v, (JsonSerializerOptions)null),
+                v => JsonSerializer.Deserialize<List<string>>(v, (JsonSerializerOptions)null)
+            )
+            .HasColumnType("LONGTEXT");
 
         modelBuilder.Entity<Profile>()
             .Property(p => p.Publicados)
             .HasConversion(
-                v => string.Join(',', v),
-                v => v.Split(',', StringSplitOptions.RemoveEmptyEntries).ToList()
-            );
+                v => JsonSerializer.Serialize(v, (JsonSerializerOptions)null),
+                v => JsonSerializer.Deserialize<List<string>>(v, (JsonSerializerOptions)null)
+            )
+            .HasColumnType("LONGTEXT");
 
         modelBuilder.Entity<Profile>()
             .Property(p => p.Vendidos)
             .HasConversion(
-                v => string.Join(',', v),
-                v => v.Split(',', StringSplitOptions.RemoveEmptyEntries).ToList()
-            );
+                v => JsonSerializer.Serialize(v, (JsonSerializerOptions)null),
+                v => JsonSerializer.Deserialize<List<string>>(v, (JsonSerializerOptions)null)
+            )
+            .HasColumnType("LONGTEXT");
         
         //Bounded context Clothes configuration
 

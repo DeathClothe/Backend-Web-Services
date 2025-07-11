@@ -5,5 +5,9 @@ public record UpdateProfileResource(
     string Apellidos,
     string Direccion,
     string Tipo,
-    string ImageProfile
+    string ImageProfile,
+    List<string> Armario,
+    List<string> Favoritos,
+    List<string> Publicados,
+    List<string> Vendidos
 );

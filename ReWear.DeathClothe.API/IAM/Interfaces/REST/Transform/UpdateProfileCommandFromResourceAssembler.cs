@@ -13,7 +13,11 @@ public class UpdateProfileCommandFromResourceAssembler
             resource.Apellidos,
             resource.Direccion,
             resource.Tipo,
-            resource.ImageProfile
+            resource.ImageProfile,
+            resource.Armario ?? new List<string>(),
+            resource.Favoritos ?? new List<string>(),
+            resource.Publicados ?? new List<string>(),
+            resource.Vendidos ?? new List<string>()
         );
     }
 }

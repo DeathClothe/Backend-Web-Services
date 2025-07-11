@@ -1,4 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using System.Text.Json;
+using Microsoft.EntityFrameworkCore;
 using ReWear.DeathClothe.API.Clothes.Domain.Model.Aggregates;
 
 namespace ReWear.DeathClothe.API.Clothes.Infrastructure.Persistence.EFC.Configurations.Extensions;
@@ -39,8 +40,11 @@ public static class ModelBuilderExtensions
         modelBuilder.Entity<Clothe>()
             .Property(c => c.Categorias)
             .HasConversion(
-                v => string.Join(',', v),
-                v => v.Split(',', StringSplitOptions.RemoveEmptyEntries).ToList()
-            );
+                v => JsonSerializer.Serialize(v, (JsonSerializerOptions)null),
+                v => JsonSerializer.Deserialize<List<string>>(v, (JsonSerializerOptions)null)
+            )
+            .HasColumnType("LONGTEXT");
+
+
     }
 }

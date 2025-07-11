@@ -1,15 +1,16 @@
 FROM mcr.microsoft.com/dotnet/sdk:9.0-preview AS build
 WORKDIR /app
 
-COPY ReWear.DeathClothe.API/ ./ReWear.DeathClothe.API/
+COPY . ./
 WORKDIR /app/ReWear.DeathClothe.API
 
 RUN dotnet restore
-RUN dotnet publish -c Release -o out
+RUN dotnet publish -c Release -o /app/out
 
-FROM mcr.microsoft.com/dotnet/aspnet:9.0-preview AS runtime
+# ⚠️ CAMBIO: usamos SDK también como runtime temporalmente
+FROM mcr.microsoft.com/dotnet/sdk:9.0-preview AS runtime
 WORKDIR /app
-COPY --from=build /app/ReWear.DeathClothe.API/out ./
+COPY --from=build /app/out ./
 
 ENV ASPNETCORE_URLS=http://+:8080
 EXPOSE 8080

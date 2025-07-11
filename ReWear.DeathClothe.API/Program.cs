@@ -60,7 +60,6 @@ builder.Services.AddDbContext<AppDbContext>(options =>
 
 // Add Documentation
 builder.Services.AddEndpointsApiExplorer();
-
 builder.Services.AddSwaggerGen(options =>
 {
     options.SwaggerDoc("v1",
@@ -86,10 +85,10 @@ builder.Services.AddSwaggerGen(options =>
 
 // Dependency Injection
 
-// Shared Bounded Context Dependency Injection Configuration
+// Shared
 builder.Services.AddScoped<IUnitOfWork, UnitOfWork>();
 
-// IAM Bounded Context Dependency Injection Configuration
+// IAM
 builder.Services.AddScoped<IProfileRepository, ProfileRepository>();
 builder.Services.Configure<TokenSettings>(builder.Configuration.GetSection("TokenSettings"));
 builder.Services.AddScoped<IProfileCommandService, ProfileCommandService>();
@@ -97,18 +96,15 @@ builder.Services.AddScoped<IProfileQueryService, ProfileQueryService>();
 builder.Services.AddScoped<ITokenService, TokenService>();
 builder.Services.AddScoped<IHashingService, HashingService>();
 
-
-// Clothes Bounded Context Dependency Injection Configuration
+// Clothes
 builder.Services.AddScoped<IClotheRepository, ClotheRepository>();
 builder.Services.AddScoped<IClotheCommandService, ClotheCommandService>();
 builder.Services.AddScoped<IClotheQueryService, ClotheQueryService>();
 
-
-// Categories Bounded Context Dependency Injection Configuration
+// Categories
 builder.Services.AddScoped<ICategoryRepository, CategoryRepository>();
 builder.Services.AddScoped<ICategoryCommandService, CategoryCommandService>();
 builder.Services.AddScoped<ICategoryQueryService, CategoryQueryService>();
-
 
 var app = builder.Build();
 
@@ -120,9 +116,8 @@ using (var scope = app.Services.CreateScope())
     context.Database.EnsureCreated();
 }
 
-//Configure the HTTP request pipeline.
-
-   if (app.Environment.IsDevelopment())
+// Configure HTTP request pipeline
+if (app.Environment.IsDevelopment())
 {
     app.UseSwagger();
     app.UseSwaggerUI(options =>
@@ -131,8 +126,6 @@ using (var scope = app.Services.CreateScope())
         options.RoutePrefix = "swagger";
     });
 }
-
-
 
 app.UseCors("AllowAllPolicy");
 

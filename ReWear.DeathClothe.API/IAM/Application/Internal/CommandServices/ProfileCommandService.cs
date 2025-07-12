@@ -65,7 +65,7 @@ public class ProfileCommandService(
         profile.GetType().GetProperty("Tipo")?.SetValue(profile, command.Tipo);
         profile.GetType().GetProperty("ImageProfile")?.SetValue(profile, command.ImageProfile);
 
-        // ✅ Ahora también actualiza los arrays
+        // Ahora también actualiza los arrays
         profile.GetType().GetProperty("Armario")?.SetValue(profile, command.Armario);
         profile.GetType().GetProperty("Favoritos")?.SetValue(profile, command.Favoritos);
         profile.GetType().GetProperty("Publicados")?.SetValue(profile, command.Publicados);

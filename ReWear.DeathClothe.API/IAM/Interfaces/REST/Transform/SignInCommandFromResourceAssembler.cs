@@ -3,7 +3,7 @@ using ReWear.DeathClothe.API.IAM.Interfaces.REST.Resources;
 
 namespace ReWear.DeathClothe.API.IAM.Interfaces.REST.Transform;
 
-public class SignInCommandFromResourceAssembler
+public static class SignInCommandFromResourceAssembler
 {
     public static SignInCommand ToCommandFromResource(SignInResource signInResource)
     {

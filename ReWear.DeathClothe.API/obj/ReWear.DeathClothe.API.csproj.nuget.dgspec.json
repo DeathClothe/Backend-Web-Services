@@ -1,20 +1,24 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Lore\\RiderProjects\\Backend-Web-Services\\ReWear.DeathClothe.API\\ReWear.DeathClothe.API.csproj": {}
+    "D:\\DeathClothe\\Backend\\ReWear.DeathClothe.API\\ReWear.DeathClothe.API.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Lore\\RiderProjects\\Backend-Web-Services\\ReWear.DeathClothe.API\\ReWear.DeathClothe.API.csproj": {
+    "D:\\DeathClothe\\Backend\\ReWear.DeathClothe.API\\ReWear.DeathClothe.API.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Lore\\RiderProjects\\Backend-Web-Services\\ReWear.DeathClothe.API\\ReWear.DeathClothe.API.csproj",
+        "projectUniqueName": "D:\\DeathClothe\\Backend\\ReWear.DeathClothe.API\\ReWear.DeathClothe.API.csproj",
         "projectName": "ReWear.DeathClothe.API",
-        "projectPath": "C:\\Users\\Lore\\RiderProjects\\Backend-Web-Services\\ReWear.DeathClothe.API\\ReWear.DeathClothe.API.csproj",
-        "packagesPath": "C:\\Users\\Lore\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Lore\\RiderProjects\\Backend-Web-Services\\ReWear.DeathClothe.API\\obj\\",
+        "projectPath": "D:\\DeathClothe\\Backend\\ReWear.DeathClothe.API\\ReWear.DeathClothe.API.csproj",
+        "packagesPath": "C:\\Users\\Usuario\\.nuget\\packages\\",
+        "outputPath": "D:\\DeathClothe\\Backend\\ReWear.DeathClothe.API\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
         "configFilePaths": [
-          "C:\\Users\\Lore\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Usuario\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -40,7 +44,7 @@
           "auditLevel": "low",
           "auditMode": "direct"
         },
-        "SdkAnalysisLevel": "9.0.300"
+        "SdkAnalysisLevel": "9.0.100"
       },
       "frameworks": {
         "net9.0": {
@@ -126,7 +130,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Users\\Lore\\.dotnet\\sdk\\9.0.301/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.101/PortableRuntimeIdentifierGraph.json"
         }
       }
     }

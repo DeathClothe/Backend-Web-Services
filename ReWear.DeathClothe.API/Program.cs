@@ -17,6 +17,7 @@ using ReWear.DeathClothe.API.IAM.Domain.Repositories;
 using ReWear.DeathClothe.API.IAM.Domain.Services;
 using ReWear.DeathClothe.API.IAM.Infrastructure.Hashing.BCrypt.Services;
 using ReWear.DeathClothe.API.IAM.Infrastructure.Persistence.EFC.Repositories;
+using ReWear.DeathClothe.API.IAM.Infrastructure.Pipeline.MiddleWare.Extensions;
 using ReWear.DeathClothe.API.IAM.Infrastructure.Tokens.JWT.Configuration;
 using ReWear.DeathClothe.API.IAM.Infrastructure.Tokens.JWT.Services;
 using ReWear.DeathClothe.API.Shared.Domain.Repositories;
@@ -81,6 +82,29 @@ builder.Services.AddSwaggerGen(options =>
                 Url = new Uri("https://www.apache.org/licenses/LICENSE-2.0.html")
             }
         });
+    options.AddSecurityDefinition("Bearer", new OpenApiSecurityScheme
+    {
+        In = ParameterLocation.Header,
+        Description = "Please enter token",
+        Name = "Authorization",
+        Type = SecuritySchemeType.Http,
+        BearerFormat = "JWT",
+        Scheme = "bearer"
+    });
+    options.AddSecurityRequirement(new OpenApiSecurityRequirement
+    {
+        {
+            new OpenApiSecurityScheme
+            {
+                Reference = new OpenApiReference
+                {
+                    Id = "Bearer",
+                    Type = ReferenceType.SecurityScheme
+                }
+            },
+            Array.Empty<string>()
+        }
+    });
     options.EnableAnnotations();
 });
 
@@ -118,16 +142,18 @@ using (var scope = app.Services.CreateScope())
 }
 
 // Configure HTTP request pipeline
+app.UseSwagger();
+app.UseSwaggerUI(options =>
+{
+    options.SwaggerEndpoint("/swagger/v1/swagger.json", "DeathClothe API v1");
+    options.RoutePrefix = "swagger";
+});
 
-    app.UseSwagger();
-    app.UseSwaggerUI(options =>
-    {
-        options.SwaggerEndpoint("/swagger/v1/swagger.json", "DeathClothe API v1");
-        options.RoutePrefix = "swagger";
-    });
-
-
+// Apply CORS Policy
 app.UseCors("AllowAllPolicy");
+
+// Add Authorization Middleware to Pipeline
+app.UseRequestAuthorization();
 
 app.UseHttpsRedirection();
 

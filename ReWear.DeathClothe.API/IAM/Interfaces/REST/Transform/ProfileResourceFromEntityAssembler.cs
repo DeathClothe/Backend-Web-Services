@@ -3,7 +3,7 @@ using ReWear.DeathClothe.API.IAM.Interfaces.REST.Resources;
 
 namespace ReWear.DeathClothe.API.IAM.Interfaces.REST.Transform;
 
-public class ProfileResourceFromEntityAssembler
+public static class ProfileResourceFromEntityAssembler
 {
     public static ProfileResource ToResourceFromEntity(Profile profile)
     {

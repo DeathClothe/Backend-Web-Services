@@ -25,17 +25,19 @@ public class RequestAuthorizationMiddleware(RequestDelegate next)
         }
         Console.WriteLine("Entering authorization");
         var token = context.Request.Headers["Authorization"].FirstOrDefault()?.Split(" ").Last();
-        if (token is null) throw new Exception("Null of invalid token");
+        
+        if (token == null) throw new Exception("Null of invalid token");
 
         var id = await tokenService.ValidateToken(token);
         
-        if (id is null) throw new Exception("Invalid token");
+        if (id == null) throw new Exception("Invalid token");
 
         var getProfileByIdQuery = new GetProfileByIdQuery(id.Value);
+        
         var profile = await profileQueryService.Handle(getProfileByIdQuery);
         Console.WriteLine("Successfully authorized. Updating context...");
         context.Items["Profile"] = profile;
-        Console.WriteLine("Continuing to next middleware in pipeline");
+        Console.WriteLine("Continuing with Middleware Pipeline");
         await next(context);
     }
 }

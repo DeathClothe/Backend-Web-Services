@@ -9,12 +9,28 @@ using Swashbuckle.AspNetCore.Annotations;
 
 namespace ReWear.DeathClothe.API.IAM.Interfaces.REST;
 
+/**
+ * <summary>
+ *     The profile's controller
+ * </summary>
+ * <remarks>
+ *     This class is used to handle profile requests
+ * </remarks>
+ */
+[Authorize]
 [ApiController]
 [Route("api/v1/[controller]")]
 [Produces(MediaTypeNames.Application.Json)]
 [SwaggerTag("Available Profile endpoints")]
 public class ProfilesController(IProfileQueryService profileQueryService) : ControllerBase
 {
+    /**
+     * <summary>
+     *     Get profile by id
+     * </summary>
+     * <param name="id">The profile id</param>
+     * <returns>The profile resource</returns>
+     */
     [HttpGet("{id:int}")]
     [SwaggerOperation(
         Summary = "Get profile by id",
@@ -31,6 +47,12 @@ public class ProfilesController(IProfileQueryService profileQueryService) : Cont
         return Ok(profileResource);
     }
 
+    /**
+     * <summary>
+     *     Get all profiles
+     * </summary>
+     * <returns>The profile resources</returns>
+     */
     [AllowAnonymous]
     [HttpGet]
     [SwaggerOperation(
@@ -46,6 +68,14 @@ public class ProfilesController(IProfileQueryService profileQueryService) : Cont
         return Ok(profileResources);
     }
     
+    /**
+     * <summary>
+     *     Update profile by id
+     * </summary>
+     * <param name="id">The profile id</param>
+     * <param name="resource">The profile resource</param>
+     * <returns>The updated profile resource</returns>
+     */
     [HttpPut("{id:int}")]
     [SwaggerOperation(
         Summary = "Update profile by id",
